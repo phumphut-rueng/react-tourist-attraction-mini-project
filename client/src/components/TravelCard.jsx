@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function TravelCard({ title, description, imageUrl, url, tags, onTagClick }) {
   function truncateText(text, maxLength) {
@@ -9,7 +9,8 @@ function TravelCard({ title, description, imageUrl, url, tags, onTagClick }) {
   }
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(url)
+    navigator.clipboard
+      .writeText(url)
       .then(() => {
         alert("คัดลอกลิงก์เรียบร้อยแล้ว!");
       })
@@ -48,15 +49,16 @@ function TravelCard({ title, description, imageUrl, url, tags, onTagClick }) {
         </a>
         <div>
           หมวดหมู่:
-          {tags && tags.map((tag, index) => (
-            <span
-              key={index}
-              onClick={() => onTagClick(tag)}
-              className="text-gray-500 underline m-2 hover:cursor-pointer"
-            >
-              {tag}
-            </span>
-          ))}
+          {tags &&
+            tags.map((tag, index) => (
+              <span
+                key={index}
+                onClick={() => onTagClick(tag)}
+                className="text-gray-500 underline m-2 hover:cursor-pointer"
+              >
+                {tag}
+              </span>
+            ))}
         </div>
         <div className="flex flex-row gap-6 mt-4">
           {imageUrl.slice(1).map((img, index) => (

@@ -1,8 +1,7 @@
 import TravelCard from "../components/TravelCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {DebounceInput} from 'react-debounce-input';
-
+import { DebounceInput } from "react-debounce-input";
 
 function TravelRecommendPage() {
   const [travelData, setTravelData] = useState([]);
@@ -22,13 +21,16 @@ function TravelRecommendPage() {
 
   function handleTagClick(tag) {
     setTravel((prev) => {
-    const words = prev.trim().split(" ").filter((word) => word !== "");
-    if(!words.includes(tag)){
-        return prev? prev + " " + tag : tag;
-    }
-    return prev;    
-  });
-}
+      const words = prev
+        .trim()
+        .split(" ")
+        .filter((word) => word !== "");
+      if (!words.includes(tag)) {
+        return prev ? prev + " " + tag : tag;
+      }
+      return prev;
+    });
+  }
 
   useEffect(() => {
     getTravelData();
